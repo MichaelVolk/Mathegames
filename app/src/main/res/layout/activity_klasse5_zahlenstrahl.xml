@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".klasse5.Klasse5ZahlenstrahlActivity">
+
+    <TextView
+        android:id="@+id/mytextview"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_edges"
+        android:gravity="center"
+        android:text="hallo"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/mytextview1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_edges"
+        android:gravity="center"
+        android:text="hallo"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/rahmen1"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:src="@drawable/ic_baseline_crop_free_24" />
+
+    <com.michaelvolk.mathegames.CanvasView
+        android:id="@+id/paintzahlenstrahl"
+        android:layout_width="300dp"
+        android:layout_height="200dp"/>
+
+</RelativeLayout>
