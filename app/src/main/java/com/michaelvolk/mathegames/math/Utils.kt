@@ -1,5 +1,6 @@
 package com.michaelvolk.mathegames.math
 
+
 class Utils {
 
     companion object {
