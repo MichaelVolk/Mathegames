@@ -25,6 +25,14 @@ class CanvasView @JvmOverloads constructor(
             style = Paint.Style.STROKE
             strokeWidth = 10F
         }
+    private val textLine =
+        Paint().apply {
+            isAntiAlias = true
+            color = Color.BLACK
+            style = Paint.Style.FILL_AND_STROKE
+            strokeWidth = 2F
+            textSize = 60F
+        }
 
 
     // Called when the view should render its content.
@@ -38,7 +46,7 @@ class CanvasView @JvmOverloads constructor(
         }
         canvas.drawLine(8F, 0F, 8F, 60F, thickLine)
         canvas.drawLine(width.toFloat()-8, 0F, width.toFloat()-8, 60F, thickLine)
-
+        canvas.drawText("0", 0F, 120F, textLine)
 
 
     }
