@@ -25,4 +25,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Tests
-      run: -/gradlew test
+      run: ./gradlew test --stacktrace
