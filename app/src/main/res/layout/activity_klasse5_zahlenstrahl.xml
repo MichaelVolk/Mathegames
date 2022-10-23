@@ -14,7 +14,7 @@
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
         android:src="@drawable/ic_baseline_crop_free_24"
-        android:contentDescription="TODO" />
+        android:contentDescription="@string/rahmen_description" />
     <ImageView
         android:id="@+id/rahmen2"
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
         android:src="@drawable/ic_baseline_crop_free_24"
-        android:contentDescription="TODO" />
+        android:contentDescription="@string/rahmen_description" />
     <ImageView
         android:id="@+id/rahmen3"
         android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
         android:src="@drawable/ic_baseline_crop_free_24"
-        android:contentDescription="TODO" />
+        android:contentDescription="@string/rahmen_description" />
     <ImageView
         android:id="@+id/rahmen4"
         android:layout_width="wrap_content"
@@ -39,12 +39,28 @@
         android:paddingEnd="0dp"
         android:paddingTop="0dp"
         android:src="@drawable/ic_baseline_crop_free_24"
-        android:contentDescription="TODO" />
-
-
+        android:contentDescription="@string/rahmen_description" />
     <ImageView
         android:id="@+id/paintzahlenstrahl"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/zahlenstrahl_description"/>
+
+    <com.michaelvolk.mathegames.MovableTextView
+        android:id="@+id/number1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.michaelvolk.mathegames.MovableTextView
+        android:id="@+id/number2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.michaelvolk.mathegames.MovableTextView
+        android:id="@+id/number3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.michaelvolk.mathegames.MovableTextView
+        android:id="@+id/number4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>

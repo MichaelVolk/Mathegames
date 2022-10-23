@@ -2,4 +2,6 @@
     <string name="app_name">Mathegames</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rahmen_description">Rahmen, in dem Zahl abgelegt werden kann</string>
+    <string name="zahlenstrahl_description">Zahlenstrahl</string>
 </resources>
