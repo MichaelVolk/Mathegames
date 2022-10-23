@@ -119,12 +119,11 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
             tempnums.sort()
             rahmenviews[i].x = (tempnums[i] - lower.toFloat()) * (screenwidth - 200) / 10F + 25
 
-            rahmenviews[i].y =
-                if (i % 2 == 0) {
-                    400F
-                } else {
-                    720F
-                }
+            rahmenviews[i].y = if (i % 2 == 0) {
+                400F
+            } else {
+                720F
+            }
         }
 
 
