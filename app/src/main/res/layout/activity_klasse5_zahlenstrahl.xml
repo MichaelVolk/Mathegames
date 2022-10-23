@@ -9,14 +9,42 @@
 
     <ImageView
         android:id="@+id/rahmen1"
-        android:layout_width="66dp"
-        android:layout_height="66dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:src="@drawable/ic_baseline_crop_free_24"
+        android:contentDescription="TODO" />
+    <ImageView
+        android:id="@+id/rahmen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:src="@drawable/ic_baseline_crop_free_24"
+        android:contentDescription="TODO" />
+    <ImageView
+        android:id="@+id/rahmen3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:src="@drawable/ic_baseline_crop_free_24"
+        android:contentDescription="TODO" />
+    <ImageView
+        android:id="@+id/rahmen4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:paddingTop="0dp"
         android:src="@drawable/ic_baseline_crop_free_24"
         android:contentDescription="TODO" />
 
+
     <ImageView
         android:id="@+id/paintzahlenstrahl"
-        android:layout_width="300dp"
-        android:layout_height="200dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

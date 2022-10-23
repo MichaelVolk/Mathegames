@@ -31,7 +31,8 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
     private var screenwidth: Int = 0
     private var navBarHeight = 0
     private var actionBarHeight = 0
-    private var numberviews: ArrayList<TextView> = ArrayList<TextView>()
+    private var numberviews: ArrayList<TextView> = ArrayList()
+    private var rahmenviews: ArrayList<ImageView> = ArrayList()
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -42,7 +43,6 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         // setting up views and nav
         setContentView(R.layout.activity_klasse5_zahlenstrahl)
-        val rahmenview = findViewById<ImageView>(R.id.rahmen1)
         val zahlenstrahlview = findViewById<ImageView>(R.id.paintzahlenstrahl)
 
 
@@ -58,17 +58,15 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
         //val navBarHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
         val tv = TypedValue()
 
-        if (this.theme.resolveAttribute(androidx.appcompat.R.attr.actionBarSize, tv, true)) {
-            actionBarHeight =
+        actionBarHeight =
+            if (this.theme.resolveAttribute(androidx.appcompat.R.attr.actionBarSize, tv, true)) {
                 TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
-        } else {
-            actionBarHeight = 0
-        }
+            } else {
+                0
+            }
 
 
-        rahmenview.x = 200F
-        rahmenview.y = 300F
-        zahlenstrahlview.x = 100F
+        zahlenstrahlview.x = 0F
         zahlenstrahlview.y = 600F
         val startZahlenstrahl = (1..19).random()
         val upper: Int
@@ -81,7 +79,7 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
             lower = upper - 10
         }
         val numbers = Utils.getRandomNumbers(lower, upper, 5)
-        val bitmap = drawOnCanvas(lower, upper, numbers)
+        val bitmap = drawOnCanvas(lower, numbers)
         zahlenstrahlview.background = BitmapDrawable(getResources(), bitmap)
         val layout: RelativeLayout = findViewById(R.id.relLayout)
         for (i in 1..4) {
@@ -102,6 +100,24 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
             viewtemp.setOnTouchListener(this)
             layout.addView(viewtemp)
             numberviews.add(viewtemp)
+        }
+
+        rahmenviews.add(findViewById(R.id.rahmen1))
+        rahmenviews.add(findViewById(R.id.rahmen2))
+        rahmenviews.add(findViewById(R.id.rahmen3))
+        rahmenviews.add(findViewById(R.id.rahmen4))
+
+        for(i in 0..3) {
+            val tempnums = numbers.subList(1,5)
+            tempnums.sort()
+            rahmenviews[i].x = (tempnums[i] - lower.toFloat()) * (screenwidth-200)/10F + 25
+
+            rahmenviews[i].y =
+                if (i % 2 == 0) {
+                    400F
+                } else  {
+                    720F
+                }
         }
 
 
@@ -146,9 +162,12 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
 
             }
             MotionEvent.ACTION_UP -> {
-                if (abs(view.x - 200) < 100 && abs(view.y - 300) < 100) {
-                    view.x = 221F
-                    view.y = 321F
+                for(i in 0..3) {
+                    if (abs(view.x - rahmenviews[i].x) < 100 && abs(view.y - rahmenviews[i].y) < 100) {
+                        view.x = rahmenviews[i].x
+                        view.y = rahmenviews[i].y
+                        break
+                    }
                 }
                 //TODO("Hier ablegen handeln (check, ob in der Nähe einer anderen Box...")
 
@@ -159,11 +178,10 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
         return true
     }
 
-    private fun drawOnCanvas(lower: Int, upper: Int, nums: ArrayList<Int>): Bitmap {
+    private fun drawOnCanvas(lower: Int, nums: ArrayList<Int>): Bitmap {
         /**
          *
          *  @property lower Lower limit of the number line
-         *  @property upper Upper limit of the number line
          *  @property nums Numbers to be shown at the number line
          *  @return A Bitmap containing the canvas and the number line drawn on it
          */
@@ -186,25 +204,31 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
             strokeWidth = 2F
             textSize = 60F
         }
-        val localwidth = screenwidth - 100
+        val localwidth = screenwidth - 200
         val bitmap: Bitmap = Bitmap.createBitmap(screenwidth, 500, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         val bigLineAt = 10 - lower
-        canvas.drawLine(10F, 30F, localwidth.toFloat()+10, 30F, thickLine)
+        canvas.drawLine(100F, 30F, screenwidth.toFloat()- 100, 30F, thickLine)
         for (i in 0 until 11) {
             if (i != bigLineAt) {
                 canvas.drawLine(
-                    10 + (i * localwidth) / 10F, 10F, 10 + (i * localwidth) / 10F, 50F, thinLine
+                    100 + (i * localwidth) / 10F, 10F, 100 + (i * localwidth) / 10F, 50F, thinLine
                 )
             }
         }
         canvas.drawLine(
-            10 + (bigLineAt * localwidth) / 10F, 0F, 10 + (bigLineAt * localwidth) / 10F, 60F, thinLine
+            100 + (bigLineAt * localwidth) / 10F, 0F, 100 + (bigLineAt * localwidth) / 10F, 60F, thinLine
         )
+        if(nums[0] > 9) {
+            canvas.drawText(
+                nums[0].toString(), 40 + (nums[0]-lower) * localwidth/10F, 110F, textLine
+            )
+        } else {
+            canvas.drawText(
+                nums[0].toString(), 70 + (nums[0]-lower) * localwidth/10F, 110F, textLine
+            )
+        }
 
-        canvas.drawText(
-            nums[0].toString(), (nums[0]-lower) * localwidth/10F - 20, 100F, textLine
-        )
         return bitmap
     }
 }

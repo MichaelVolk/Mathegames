@@ -32,7 +32,6 @@ class Klasse5Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.zahlenstrahl.text = "HALLOOOOOOOO"
         binding.zahlenstrahl.setOnClickListener {
             val intent = Intent(activity, Klasse5ZahlenstrahlActivity::class.java)
             (activity as MainActivity?)!!.startActivity(intent)
