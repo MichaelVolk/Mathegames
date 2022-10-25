@@ -43,7 +43,7 @@ class Klasse5ZahlenstrahlActivity : AppCompatActivity(), OnTouchListener {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Actionbar, damit der zurück-Knopf ersc
+        // Actionbar, damit der zurück-Knopf erscheint
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         // setting up views and nav

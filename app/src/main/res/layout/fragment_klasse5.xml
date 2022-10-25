@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Klasse5Fragment">
+    tools:context=".Klasse5Fragment"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/zahlenstrahl"
+        android:id="@+id/gamezahlenstrahl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:gravity="center"
-        android:focusable="true" />
+        android:focusable="true"
+        android:text="Zahlenstrahl"/>
+    <TextView
+        android:id="@+id/gameromannumerals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center"
+        android:focusable="true"
+        android:text="Game 2"/>
 
 
-</FrameLayout>
+</LinearLayout>

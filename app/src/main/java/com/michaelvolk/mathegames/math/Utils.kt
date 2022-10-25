@@ -13,6 +13,7 @@ class Utils {
              * @param count amount of different numbers returns
              * @throws IllegalArgumentException if count exceeds the number of numbers in the given
              * interval
+             * @throws IllegalArgumentException if lower is higher than upper
              *
              *
              *
@@ -31,6 +32,18 @@ class Utils {
                 if (!list.contains(num)) list.add(num)
             }
             return list
+        }
+
+        fun num2roman(input: Int = 1): String {
+            if(input < 1) throw java.lang.IllegalArgumentException("Number must be greater than 0")
+            var output = ""
+            var num = input
+            while(num > 1000) {
+                num -= 1000
+                output = "M$output"
+            }
+
+            return output
         }
     }
 }

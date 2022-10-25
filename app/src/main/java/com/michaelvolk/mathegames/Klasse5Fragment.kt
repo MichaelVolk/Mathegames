@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.michaelvolk.mathegames.databinding.FragmentKlasse5Binding
+import com.michaelvolk.mathegames.klasse5.Klasse5RomanActivity
 import com.michaelvolk.mathegames.klasse5.Klasse5ZahlenstrahlActivity
 
 
@@ -32,8 +33,12 @@ class Klasse5Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.zahlenstrahl.setOnClickListener {
+        binding.gamezahlenstrahl.setOnClickListener {
             val intent = Intent(activity, Klasse5ZahlenstrahlActivity::class.java)
+            (activity as MainActivity?)!!.startActivity(intent)
+        }
+        binding.gameromannumerals.setOnClickListener {
+            val intent = Intent(activity, Klasse5RomanActivity::class.java)
             (activity as MainActivity?)!!.startActivity(intent)
         }
     }
